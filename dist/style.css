@@ -1,0 +1,14 @@
+header {
+    padding: 20px 35px;
+    color: white;
+    background-color: red;
+    text-align: center;
+}
+
+.card-deck {
+    margin: 25px 10px;
+}
+
+.card {
+    max-width: 18rem;
+}
