@@ -12,3 +12,8 @@ header {
 .card {
     max-width: 18rem;
 }
+
+.card-header {
+    color: white;
+    background-color: rgb(49, 114, 255);
+}
