@@ -1,6 +1,19 @@
-// const renderEngineerMember = 
+const renderEngineerMember = addTeamMember => {
+    if (addTeamMember === 'Engineer') {
+        return `
+        <div class="card">
+            <div class="card-header">${data.engineerName}</div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">${data.engineerId}</li>
+                    <li class="list-group-item">${data.engineerEmail}</li>
+                    <li class="list-group-item">${data.engineerGit}</li>
+                </ul>
+        </div>
+        `
+    }
+}
 
-// const renderInterMember = 
+const renderInterMember
 
 const generatePage = data => {
     return `
@@ -30,6 +43,8 @@ const generatePage = data => {
                             <li class="list-group-item">${data.officeNumber}</li>
                         </ul>
                 </div>
+                ${renderEngineerMember}
+                ${renderInternMember}
             </div>
         </main>
     </body>
