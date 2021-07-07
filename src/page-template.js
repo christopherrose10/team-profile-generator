@@ -5,8 +5,8 @@ const renderEngineerMember = addTeamMember => {
             <div class="card-header">${data.engineerName}</div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">${data.engineerId}</li>
-                    <li class="list-group-item">${data.engineerEmail}</li>
-                    <li class="list-group-item">${data.engineerGit}</li>
+                    <li class="list-group-item"><a href="${data.engineerEmail}">Email</a></li>
+                    <li class="list-group-item"><a href="https://github.com/${data.engineerGit}" target="_blank">GitHub</a></li>
                 </ul>
         </div>
         `
@@ -39,7 +39,7 @@ const generatePage = data => {
                     <div class="card-header">${data.teamManagerName}</div>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">${data.managerId}</li>
-                            <li class="list-group-item">${data.managerEmail}</li>
+                            <li class="list-group-item"><a href="${data.managerEmail}">Email</a></li>
                             <li class="list-group-item">${data.officeNumber}</li>
                         </ul>
                 </div>
