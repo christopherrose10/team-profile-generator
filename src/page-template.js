@@ -13,7 +13,7 @@ const renderEngineerMember = addTeamMember => {
     }
 }
 
-const renderInterMember
+// const renderInterMember
 
 const generatePage = data => {
     return `
