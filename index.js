@@ -11,54 +11,7 @@ const engineerArray = [];
 const internArray = [];
 
 
-const questions = [
-    // {
-    //     type: 'list',
-    //     name: 'addTeamMember',
-    //     message: "Would you like to add a team member?",
-    //     choices: ['Engineer', 'Intern', 'Finished building team'] 
-    // },
-    // {
-    //     type: 'input',
-    //     name: 'engineerName',
-    //     message: "Name of engineer:"
-    // },
-    // {
-    //     type: 'input',
-    //     name: 'engineerId',
-    //     message: "Employee ID of this team member?"
-    // },
-    // {
-    //     type: 'input',
-    //     name: 'engineerEmail',
-    //     message: "Email address of this team member?"
-    // },
-    // {
-    //     type: 'input',
-    //     name: 'engineerGit',
-    //     message: "GitHub username of this team member?"
-    // },
-    // {
-    //     type: 'input',
-    //     name: 'internName',
-    //     message: "Name of Intern:"
-    // },
-    // {
-    //     type: 'input',
-    //     name: 'internId',
-    //     message: "Employee ID of this team member?"
-    // },
-    // {
-    //     type: 'input',
-    //     name: 'internEmail',
-    //     message: "Email address of this team member?"
-    // },
-    // {
-    //     type: 'input',
-    //     name: 'internGit',
-    //     message: "GitHub username of this team member?"
-    // },
-];
+const questions = [];
 
 const createManager = () => {
     inquirer.prompt([
@@ -102,42 +55,42 @@ const teamChoice = () => {
             choices: ['Engineer', 'Intern', 'Finished building team']
         }
     ])
-    .then(answers => {
-        switch(answers.addTeamMember){
-            case "Engineer":
-                createEngineer();
-                break;
-            case "Intern":
-                createIntern();
-                break;
-            default: promptUser();
-        }
-    })
+        .then(answers => {
+            switch (answers.addTeamMember) {
+                case "Engineer":
+                    createEngineer();
+                    break;
+                case "Intern":
+                    createIntern();
+                    break;
+                default: finishBuild();
+            }
+        })
 };
 
 const createEngineer = () => {
     inquirer.prompt([
-    {
-        type: 'input',
-        name: 'engineerName',
-        message: "Name of engineer:"
-    },
-    {
-        type: 'input',
-        name: 'engineerId',
-        message: "Employee ID of this team member?"
-    },
-    {
-        type: 'input',
-        name: 'engineerEmail',
-        message: "Email address of this team member?"
-    },
-    {
-        type: 'input',
-        name: 'engineerGit',
-        message: "GitHub username of this team member?"
-    }
-])
+        {
+            type: 'input',
+            name: 'engineerName',
+            message: "Name of engineer:"
+        },
+        {
+            type: 'input',
+            name: 'engineerId',
+            message: "Employee ID of this team member?"
+        },
+        {
+            type: 'input',
+            name: 'engineerEmail',
+            message: "Email address of this team member?"
+        },
+        {
+            type: 'input',
+            name: 'engineerGit',
+            message: "GitHub username of this team member?"
+        }
+    ])
         .then(answers => {
             console.log(answers);
             const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGit);
@@ -151,26 +104,26 @@ const createEngineer = () => {
 const createIntern = () => {
     inquirer.prompt([
         {
-        type: 'input',
-        name: 'internName',
-        message: "Name of Intern:"
-    },
-    {
-        type: 'input',
-        name: 'internId',
-        message: "Employee ID of this team member?"
-    },
-    {
-        type: 'input',
-        name: 'internEmail',
-        message: "Email address of this team member?"
-    },
-    {
-        type: 'input',
-        name: 'internSchool',
-        message: "School of this team member?"
-    }
-])
+            type: 'input',
+            name: 'internName',
+            message: "Name of Intern:"
+        },
+        {
+            type: 'input',
+            name: 'internId',
+            message: "Employee ID of this team member?"
+        },
+        {
+            type: 'input',
+            name: 'internEmail',
+            message: "Email address of this team member?"
+        },
+        {
+            type: 'input',
+            name: 'internSchool',
+            message: "School of this team member?"
+        }
+    ])
         .then(answers => {
             console.log(answers);
             const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
@@ -184,17 +137,15 @@ const createIntern = () => {
 
 createManager();
 
-// const promptUser = () => {
-//     return inquirer.prompt(questions)
-//         .then(data => {
-//             const pageHTML = generateMarkdown(data);
+const finishBuild = () => {
 
-//             fs.writeFile('./dist/index.html', pageHTML, err => {
-//                 if (err) throw err;
-//                 console.log('Team Portfolio complete! Check out index.html to see the output!');
+    const pageHTML = generateMarkdown();
 
-//             });
-//         });
-// };
+    fs.writeFile('./dist/index.html', pageHTML, err => {
+        if (err) throw err;
+        console.log('Team Portfolio complete! Check out index.html to see the output!');
 
-// promptUser();
+    });
+
+};
+

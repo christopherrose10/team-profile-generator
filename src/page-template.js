@@ -1,21 +1,24 @@
 const renderEngineerMember = addTeamMember => {
-    if (addTeamMember === 'Engineer') {
-        return `
-        <div class="card">
-            <div class="card-header">${data.engineerName}</div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">${data.engineerId}</li>
-                    <li class="list-group-item"><a href="${data.engineerEmail}">Email</a></li>
-                    <li class="list-group-item"><a href="https://github.com/${data.engineerGit}" target="_blank">GitHub</a></li>
-                </ul>
-        </div>
-        `
+    for (let i = 1; i < addTeamMember.length; i++) {
+        if (addTeamMember === 'Engineer') {
+            return `
+            <div class="card">
+                <div class="card-header">${answers.engineerName}</div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">${answers.engineerId}</li>
+                        <li class="list-group-item"><a href="${answers.engineerEmail}">Email</a></li>
+                        <li class="list-group-item"><a href="https://github.com/${answers.engineerGit}" target="_blank">GitHub</a></li>
+                    </ul>
+            </div>
+            `
+        }
+
     }
 }
 
 // const renderInterMember
 
-const generatePage = data => {
+const generatePage = answers => {
     return `
     <!DOCTYPE html>
     <html lang="en">
@@ -36,11 +39,11 @@ const generatePage = data => {
         <main>
             <div class="card-deck">
                 <div class="card">
-                    <div class="card-header">${data.teamManagerName}</div>
+                    <div class="card-header">${answers.teamManagerName}</div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">${data.managerId}</li>
-                            <li class="list-group-item"><a href="${data.managerEmail}">Email</a></li>
-                            <li class="list-group-item">${data.officeNumber}</li>
+                            <li class="list-group-item">${answers.managerId}</li>
+                            <li class="list-group-item"><a href="${answers.managerEmail}">Email</a></li>
+                            <li class="list-group-item">${answers.officeNumber}</li>
                         </ul>
                 </div>
                 ${renderEngineerMember}
