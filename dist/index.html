@@ -18,30 +18,27 @@
         <main>
             <div class="card-deck">
                 <div class="card">
-                    <div class="card-header">Manager</div>
+                    <div class="card-header">Manager: undefined</div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">undefined</li>
-                            <li class="list-group-item"><a href="undefined">Email</a></li>
-                            <li class="list-group-item">undefined</li>
+                            <li class="list-group-item">ID: undefined</li>
+                            <li class="list-group-item">Email: <a href="undefined">undefined</a></li>
+                            <li class="list-group-item">Office Number: undefined</li>
                         </ul>
                 </div>
-                addTeamMember => {
-    for (let i = 1; i < addTeamMember.length; i++) {
-        if (teamChoice === 'Engineer') {
+                (Engineer) => {
+    // for (let i = 1; i < Employee.length; i++) {
+    //     if (teamChoice === 'Engineer') {
             return `
             <div class="card">
-                <div class="card-header">${answers.engineerName}</div>
+                <div class="card-header">Engineer: ${Engineer.name}</div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">${answers.engineerId}</li>
-                        <li class="list-group-item"><a href="${answers.engineerEmail}">Email</a></li>
-                        <li class="list-group-item"><a href="https://github.com/${answers.engineerGit}" target="_blank">GitHub</a></li>
+                        <li class="list-group-item">ID: ${Engineer.id}</li>
+                        <li class="list-group-item">Email: <a href="${Engineer.email}">${Engineer.email}</a></li>
+                        <li class="list-group-item">GitHub: <a href="https://github.com/${Engineer.github}" target="_blank">${Engineer.github}</a></li>
                     </ul>
             </div>
             `
         }
-
-    }
-}
             </div>
         </main>
     </body>

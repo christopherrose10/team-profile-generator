@@ -1,26 +1,51 @@
 const Manager = require("../lib/Manager");
+const Engineer = require("../lib/Engineer");
+const Intern = require("../lib/Intern");
+const Employee = require("../lib/Employee");
 
-const renderEngineerMember = addTeamMember => {
-    for (let i = 1; i < addTeamMember.length; i++) {
-        if (teamChoice === 'Engineer') {
+const managerArray = require("../index")
+
+const createManager = require('../index');
+const teamChoice = require('../index');
+const createEngineer = require('../index');
+const createIntern = require('../index');
+
+const renderEngineerMember = (Engineer) => {
+    // for (let i = 1; i < Employee.length; i++) {
+    //     if (teamChoice === 'Engineer') {
             return `
             <div class="card">
-                <div class="card-header">${answers.engineerName}</div>
+                <div class="card-header">Engineer: ${Engineer.name}</div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">${answers.engineerId}</li>
-                        <li class="list-group-item"><a href="${answers.engineerEmail}">Email</a></li>
-                        <li class="list-group-item"><a href="https://github.com/${answers.engineerGit}" target="_blank">GitHub</a></li>
+                        <li class="list-group-item">ID: ${Engineer.id}</li>
+                        <li class="list-group-item">Email: <a href="${Engineer.email}">${Engineer.email}</a></li>
+                        <li class="list-group-item">GitHub: <a href="https://github.com/${Engineer.github}" target="_blank">${Engineer.github}</a></li>
                     </ul>
             </div>
             `
         }
 
-    }
-}
+    
 
-// const renderInterMember
 
-const generatePage = (managerArray, engineerArray, internArray) => {
+// const renderInternMember = () => {
+//     for (let i = 1; i < Employee.length; i++) {
+//         if (teamChoice === 'Intern') {
+//             return `
+//             <div class="card">
+//                 <div class="card-header">Intern: ${Intern.internName}</div>
+//                     <ul class="list-group list-group-flush">
+//                         <li class="list-group-item">ID: ${Intern.internId}</li>
+//                         <li class="list-group-item">Email: <a href="${Intern.internEmail}">${Intern.internEmail}</a></li>
+//                         <li class="list-group-item">School: ${Intern.internSchool}</li>
+//                     </ul>
+//             </div>
+//             `
+//         }
+//     }
+// }
+
+const generatePage = () => {
     return `
     <!DOCTYPE html>
     <html lang="en">
@@ -41,11 +66,11 @@ const generatePage = (managerArray, engineerArray, internArray) => {
         <main>
             <div class="card-deck">
                 <div class="card">
-                    <div class="card-header">${Manager.name}</div>
+                    <div class="card-header">Manager: ${managerArray.Manager.name}</div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">${Manager.id}</li>
-                            <li class="list-group-item"><a href="${Manager.email}">Email</a></li>
-                            <li class="list-group-item">${Manager.office}</li>
+                            <li class="list-group-item">ID: ${managerArray.Manager.id}</li>
+                            <li class="list-group-item">Email: <a href="${managerArray.Manager.email}">${managerArray.Manager.email}</a></li>
+                            <li class="list-group-item">Office Number: ${managerArray.Manager.office}</li>
                         </ul>
                 </div>
                 ${renderEngineerMember}

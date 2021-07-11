@@ -4,6 +4,7 @@ const generateMarkdown = require('./src/page-template');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
+const Employee = require('./lib/Employee');
 
 
 const managerArray = [];
@@ -146,3 +147,8 @@ const finishBuild = () => {
 
 };
 
+module.exports = createManager;
+module.exports = teamChoice;
+module.exports = createEngineer;
+module.exports = createIntern;
+module.exports = [managerArray];
