@@ -1,6 +1,8 @@
+const Manager = require("../lib/Manager");
+
 const renderEngineerMember = addTeamMember => {
     for (let i = 1; i < addTeamMember.length; i++) {
-        if (addTeamMember === 'Engineer') {
+        if (teamChoice === 'Engineer') {
             return `
             <div class="card">
                 <div class="card-header">${answers.engineerName}</div>
@@ -18,7 +20,7 @@ const renderEngineerMember = addTeamMember => {
 
 // const renderInterMember
 
-const generatePage = answers => {
+const generatePage = (managerArray, engineerArray, internArray) => {
     return `
     <!DOCTYPE html>
     <html lang="en">
@@ -39,15 +41,14 @@ const generatePage = answers => {
         <main>
             <div class="card-deck">
                 <div class="card">
-                    <div class="card-header">${answers.teamManagerName}</div>
+                    <div class="card-header">${Manager.name}</div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">${answers.managerId}</li>
-                            <li class="list-group-item"><a href="${answers.managerEmail}">Email</a></li>
-                            <li class="list-group-item">${answers.officeNumber}</li>
+                            <li class="list-group-item">${Manager.id}</li>
+                            <li class="list-group-item"><a href="${Manager.email}">Email</a></li>
+                            <li class="list-group-item">${Manager.office}</li>
                         </ul>
                 </div>
                 ${renderEngineerMember}
-                ${renderInternMember}
             </div>
         </main>
     </body>

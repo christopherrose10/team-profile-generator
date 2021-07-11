@@ -10,9 +10,6 @@ const managerArray = [];
 const engineerArray = [];
 const internArray = [];
 
-
-const questions = [];
-
 const createManager = () => {
     inquirer.prompt([
         {
@@ -139,7 +136,7 @@ createManager();
 
 const finishBuild = () => {
 
-    const pageHTML = generateMarkdown();
+    const pageHTML = generateMarkdown(managerArray, engineerArray, internArray);
 
     fs.writeFile('./dist/index.html', pageHTML, err => {
         if (err) throw err;
