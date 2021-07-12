@@ -17,8 +17,6 @@ The project can be tested with Jest.
 * HTML
 * CSS
 
-## Website
-https://christopherrose10.github.io/team-profile-generator/
 
 ## Contribution
 Made by [Chris Rose]
