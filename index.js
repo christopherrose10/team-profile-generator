@@ -1,9 +1,9 @@
-const fs = require('fs');
-const inquirer = require('inquirer');
-const generateMarkdown = require('./src/page-template');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
+const fs = require('fs');
+const inquirer = require('inquirer');
+const generateMarkdown = require('./src/page-template');
 const Employee = require('./lib/Employee');
 
 
@@ -133,11 +133,9 @@ const createIntern = () => {
 };
 
 
-createManager();
-
 const finishBuild = () => {
 
-    const pageHTML = generateMarkdown(managerArray, engineerArray, internArray);
+    const pageHTML = generateMarkdown();
 
     fs.writeFile('./dist/index.html', pageHTML, err => {
         if (err) throw err;
@@ -147,8 +145,12 @@ const finishBuild = () => {
 
 };
 
+createManager();
+
 module.exports = createManager;
 module.exports = teamChoice;
 module.exports = createEngineer;
 module.exports = createIntern;
 module.exports = [managerArray];
+module.exports = [engineerArray];
+module.exports = [internArray];

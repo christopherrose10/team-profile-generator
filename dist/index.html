@@ -18,14 +18,14 @@
         <main>
             <div class="card-deck">
                 <div class="card">
-                    <div class="card-header">Manager: undefined</div>
+                    <div class="card-header">Manager: Manager</div>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">ID: undefined</li>
                             <li class="list-group-item">Email: <a href="undefined">undefined</a></li>
                             <li class="list-group-item">Office Number: undefined</li>
                         </ul>
                 </div>
-                (Engineer) => {
+                () => {
     // for (let i = 1; i < Employee.length; i++) {
     //     if (teamChoice === 'Engineer') {
             return `
@@ -39,6 +39,22 @@
             </div>
             `
         }
+                () => {
+    for (let i = 1; i < Employee.length; i++) {
+        if (teamChoice === 'Intern') {
+            return `
+            <div class="card">
+                <div class="card-header">Intern: ${Intern.internName}</div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">ID: ${Intern.internId}</li>
+                        <li class="list-group-item">Email: <a href="${Intern.internEmail}">${Intern.internEmail}</a></li>
+                        <li class="list-group-item">School: ${Intern.internSchool}</li>
+                    </ul>
+            </div>
+            `
+        }
+    }
+}
             </div>
         </main>
     </body>

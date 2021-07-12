@@ -3,14 +3,7 @@ const Engineer = require("../lib/Engineer");
 const Intern = require("../lib/Intern");
 const Employee = require("../lib/Employee");
 
-const managerArray = require("../index")
-
-const createManager = require('../index');
-const teamChoice = require('../index');
-const createEngineer = require('../index');
-const createIntern = require('../index');
-
-const renderEngineerMember = (Engineer) => {
+const renderEngineerMember = () => {
     // for (let i = 1; i < Employee.length; i++) {
     //     if (teamChoice === 'Engineer') {
             return `
@@ -28,24 +21,25 @@ const renderEngineerMember = (Engineer) => {
     
 
 
-// const renderInternMember = () => {
-//     for (let i = 1; i < Employee.length; i++) {
-//         if (teamChoice === 'Intern') {
-//             return `
-//             <div class="card">
-//                 <div class="card-header">Intern: ${Intern.internName}</div>
-//                     <ul class="list-group list-group-flush">
-//                         <li class="list-group-item">ID: ${Intern.internId}</li>
-//                         <li class="list-group-item">Email: <a href="${Intern.internEmail}">${Intern.internEmail}</a></li>
-//                         <li class="list-group-item">School: ${Intern.internSchool}</li>
-//                     </ul>
-//             </div>
-//             `
-//         }
-//     }
-// }
+const renderInternMember = () => {
+    for (let i = 1; i < Employee.length; i++) {
+        if (teamChoice === 'Intern') {
+            return `
+            <div class="card">
+                <div class="card-header">Intern: ${Intern.internName}</div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">ID: ${Intern.internId}</li>
+                        <li class="list-group-item">Email: <a href="${Intern.internEmail}">${Intern.internEmail}</a></li>
+                        <li class="list-group-item">School: ${Intern.internSchool}</li>
+                    </ul>
+            </div>
+            `
+        }
+    }
+}
 
 const generatePage = () => {
+    console.log(Manager)
     return `
     <!DOCTYPE html>
     <html lang="en">
@@ -66,14 +60,15 @@ const generatePage = () => {
         <main>
             <div class="card-deck">
                 <div class="card">
-                    <div class="card-header">Manager: ${managerArray.Manager.name}</div>
+                    <div class="card-header">Manager: ${Manager.name}</div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">ID: ${managerArray.Manager.id}</li>
-                            <li class="list-group-item">Email: <a href="${managerArray.Manager.email}">${managerArray.Manager.email}</a></li>
-                            <li class="list-group-item">Office Number: ${managerArray.Manager.office}</li>
+                            <li class="list-group-item">ID: ${Manager.id}</li>
+                            <li class="list-group-item">Email: <a href="${Manager.email}">${Manager.email}</a></li>
+                            <li class="list-group-item">Office Number: ${Manager.office}</li>
                         </ul>
                 </div>
                 ${renderEngineerMember}
+                ${renderInternMember}
             </div>
         </main>
     </body>
