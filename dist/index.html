@@ -25,10 +25,6 @@
                             <li class="list-group-item">Office Number: undefined</li>
                         </ul>
                 </div>
-                () => {
-    // for (let i = 1; i < Employee.length; i++) {
-    //     if (teamChoice === 'Engineer') {
-            return `
             <div class="card">
                 <div class="card-header">Engineer: ${Engineer.name}</div>
                     <ul class="list-group list-group-flush">
@@ -37,12 +33,6 @@
                         <li class="list-group-item">GitHub: <a href="https://github.com/${Engineer.github}" target="_blank">${Engineer.github}</a></li>
                     </ul>
             </div>
-            `
-        }
-                () => {
-    for (let i = 1; i < Employee.length; i++) {
-        if (teamChoice === 'Intern') {
-            return `
             <div class="card">
                 <div class="card-header">Intern: ${Intern.internName}</div>
                     <ul class="list-group list-group-flush">
@@ -51,10 +41,6 @@
                         <li class="list-group-item">School: ${Intern.internSchool}</li>
                     </ul>
             </div>
-            `
-        }
-    }
-}
             </div>
         </main>
     </body>
